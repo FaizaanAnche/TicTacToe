@@ -12,8 +12,14 @@ export function calculateWinner(squares) {
   for (let i = 0; i < winningCombos.length; i++) {
     const [a, b, c] = winningCombos[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return {
+        winner: squares[a],
+        winningSquares: winningCombos[i],
+      };
     }
   }
-  return null;
+  return {
+    winner: null,
+    winningSquares: [],
+  };
 }
